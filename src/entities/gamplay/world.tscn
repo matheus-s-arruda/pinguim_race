@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://src/entities/whale/whale.tscn" type="PackedScene" id=1]
+[ext_resource path="res://src/entities/orca/orca.tscn" type="PackedScene" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+
+[node name="world" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 1330, -665 )
+current = true
+zoom = Vector2( 2, 2 )
+
+[node name="whale" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 1704, 508 )
+rotation = 0.0948962
+
+[node name="orca" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1331, -352 )
+rotation = -2.04204
+
+[node name="Icon" type="Sprite" parent="."]
+position = Vector2( 1000, -600 )
+texture = ExtResource( 3 )
