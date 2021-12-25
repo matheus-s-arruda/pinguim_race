@@ -1,7 +1,137 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
 
-[node name="pinguin_imperial" type="Node2D"]
+[ext_resource path="res://assets/svg/pinguin_imperial.svg" type="Texture" id=1]
+[ext_resource path="res://assets/svg/pinguin_imperial_nadadeiras.svg" type="Texture" id=2]
+[ext_resource path="res://src/entities/pinguins/imperial/pinguin_imperial.gd" type="Script" id=3]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 11.0
+height = 45.0
+
+[node name="pinguin_imperial" type="KinematicBody2D"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2( 64.7003, -57.4889 )
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 1 )
+skeleton = NodePath("../Skeleton2D")
+polygon = PoolVector2Array( 77, 26, 73.8889, 31.1111, 73, 42, 68.5185, 47.963, 67.7778, 54.4444, 66.5814, 60.0211, 64, 65, 61, 73, 60, 84, 60.5746, 95.0606, 61.7426, 104.404, 61.242, 111.746, 62.41, 119.421, 65.7407, 125.926, 65.1852, 131.852, 65.9259, 139.63, 70.1852, 145.741, 80.9259, 145.741, 87.037, 139.63, 87.5926, 130.741, 85.9259, 125.926, 90, 120.37, 91.9433, 112.247, 92.037, 103.148, 93, 92, 93, 82, 92, 73, 89, 65, 86, 60, 84.8148, 53.7037, 83.3333, 46.6667, 80, 42, 80, 31 )
+uv = PoolVector2Array( 77, 26, 73.8889, 31.1111, 73, 42, 68.5185, 47.963, 67.7778, 54.4444, 66.5814, 60.0211, 64, 65, 61, 73, 60, 84, 60.5746, 95.0606, 61.7426, 104.404, 61.242, 111.746, 62.41, 119.421, 65.7407, 125.926, 65.1852, 131.852, 65.9259, 139.63, 70.1852, 145.741, 80.9259, 145.741, 87.037, 139.63, 87.5926, 130.741, 85.9259, 125.926, 90, 120.37, 91.9433, 112.247, 92.037, 103.148, 93, 92, 93, 82, 92, 73, 89, 65, 86, 60, 84.8148, 53.7037, 83.3333, 46.6667, 80, 42, 80, 31 )
+polygons = [ PoolIntArray( 1, 32, 0 ), PoolIntArray( 2, 31, 32, 1 ), PoolIntArray( 3, 30, 31, 2 ), PoolIntArray( 4, 29, 30, 3 ), PoolIntArray( 5, 28, 29, 4 ), PoolIntArray( 6, 5, 28, 27 ), PoolIntArray( 6, 7, 26, 27 ), PoolIntArray( 8, 7, 26, 25 ), PoolIntArray( 9, 24, 25, 8 ), PoolIntArray( 10, 23, 24, 9 ), PoolIntArray( 11, 22, 23, 10 ), PoolIntArray( 12, 11, 22, 21 ), PoolIntArray( 13, 20, 21, 12 ), PoolIntArray( 14, 19, 20, 13 ), PoolIntArray( 15, 18, 19, 14 ), PoolIntArray( 16, 17, 18, 15 ) ]
+bones = [ "origin", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "origin/tronco", PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 1, 1, 0.5, 0, 0, 0, 0, 0 ), "origin/tronco/neck", PoolRealArray( 0, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0 ), "origin/tronco/neck/cabeca", PoolRealArray( 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1 ), "origin/quadril", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0.5, 0.5, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 0.5, 0.5, 0, 0, 0, 0, 0, 0 ), "origin/quadril/bacia", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "origin/quadril/bacia/pernas", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0, 0, 0.5, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ), "origin/quadril/bacia/pernas/patas", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.5, 1, 1, 1, 1, 1, 1, 0.5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
+position = Vector2( 64.7003, -57.4889 )
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+
+[node name="origin" type="Bone2D" parent="Skeleton2D"]
+position = Vector2( 77.087, 86.2641 )
+rest = Transform2D( 1, 0, 0, 1, 77.087, 86.2641 )
+
+[node name="tronco" type="Bone2D" parent="Skeleton2D/origin"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="neck" type="Bone2D" parent="Skeleton2D/origin/tronco"]
+position = Vector2( 0, -15.6844 )
+rest = Transform2D( 1, 0, 0, 1, 0, -15.6844 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="cabeca" type="Bone2D" parent="Skeleton2D/origin/tronco/neck"]
+position = Vector2( 0, -13.5152 )
+rotation = -1.5708
+rest = Transform2D( -4.37114e-08, -1, 1, -4.37114e-08, 0, -13.5152 )
+default_length = 20.0
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Position2D" type="Position2D" parent="Skeleton2D/origin/tronco/neck/cabeca"]
+position = Vector2( 24.5277, 0 )
+rotation = -0.766624
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="left" type="Sprite" parent="Skeleton2D/origin/tronco/neck"]
+position = Vector2( -12.134, 0 )
+texture = ExtResource( 2 )
+offset = Vector2( -11.894, 13.276 )
+flip_h = true
+region_enabled = true
+region_rect = Rect2( 82.7646, 64.4958, 35.358, 39.5062 )
+
+[node name="right" type="Sprite" parent="Skeleton2D/origin/tronco/neck"]
+position = Vector2( 10.73, 0 )
+texture = ExtResource( 2 )
+offset = Vector2( 11.894, 13.276 )
+region_enabled = true
+region_rect = Rect2( 82.7646, 64.4958, 35.358, 39.5062 )
+
+[node name="quadril" type="Bone2D" parent="Skeleton2D/origin"]
+rest = Transform2D( 1, 0, 0, 1, 0, 0 )
+__meta__ = {
+"_edit_bone_": true,
+"_edit_ik_": true
+}
+
+[node name="bacia" type="Bone2D" parent="Skeleton2D/origin/quadril"]
+position = Vector2( 0, 13.604 )
+rest = Transform2D( 1, 0, 0, 1, 0, 13.604 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="pernas" type="Bone2D" parent="Skeleton2D/origin/quadril/bacia"]
+position = Vector2( 0, 14.146 )
+rest = Transform2D( 1, 0, 0, 1, 0, 14.146 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="patas" type="Bone2D" parent="Skeleton2D/origin/quadril/bacia/pernas"]
+position = Vector2( 0, 14.4185 )
+rotation = 1.5708
+rest = Transform2D( -4.37114e-08, 1, -1, -4.37114e-08, 0, 14.4185 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="Position2D" type="Position2D" parent="Skeleton2D/origin/quadril/bacia/pernas/patas"]
+position = Vector2( 18.0203, 0 )
+__meta__ = {
+"_edit_bone_": true
+}
+
+[node name="PinguinImperial" type="Sprite" parent="."]
+visible = false
+position = Vector2( -19.2687, 54.3861 )
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 1 )
+
+[node name="PinguinImperialNadadeiras" type="Sprite" parent="."]
+visible = false
+position = Vector2( -19.2687, 54.3861 )
+rotation = 1.5708
+scale = Vector2( 0.75, 0.75 )
+texture = ExtResource( 2 )

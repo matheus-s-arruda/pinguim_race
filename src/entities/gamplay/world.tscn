@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/entities/whale/whale.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/entities/orca/orca.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://src/entities/pinguins/imperial/pinguin_imperial.tscn" type="PackedScene" id=4]
 
 [node name="world" type="Node2D"]
 
@@ -23,3 +24,7 @@ rotation = -2.04204
 [node name="Icon" type="Sprite" parent="."]
 position = Vector2( 2096, -457 )
 texture = ExtResource( 3 )
+
+[node name="pinguin_imperial" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1262, -207 )
+rotation = -1.72235
