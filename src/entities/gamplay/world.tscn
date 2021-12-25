@@ -21,5 +21,5 @@ position = Vector2( 1331, -352 )
 rotation = -2.04204
 
 [node name="Icon" type="Sprite" parent="."]
-position = Vector2( 1000, -600 )
+position = Vector2( 2096, -457 )
 texture = ExtResource( 3 )

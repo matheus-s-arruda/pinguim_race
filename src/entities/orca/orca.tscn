@@ -810,6 +810,8 @@ tracks/10/keys = {
 "values": [ 3.99, -2.98328, -0.12757, -0.978473 ]
 }
 
+[sub_resource type="AnimationNodeAdd2" id=21]
+
 [sub_resource type="AnimationNodeAnimation" id=6]
 animation = "fins"
 
@@ -827,34 +829,32 @@ animation = "swimming"
 
 [sub_resource type="AnimationNodeTimeScale" id=14]
 
-[sub_resource type="AnimationNodeAdd2" id=5]
-
 [sub_resource type="AnimationNodeBlend3" id=20]
 
 [sub_resource type="AnimationNodeBlend2" id=9]
 
 [sub_resource type="AnimationNodeBlendTree" id=10]
-graph_offset = Vector2( -604.286, -59.5713 )
+graph_offset = Vector2( -732.857, -114.286 )
+nodes/Add2/node = SubResource( 21 )
+nodes/Add2/position = Vector2( 28.5714, 57.1429 )
 nodes/Animation/node = SubResource( 8 )
-nodes/Animation/position = Vector2( -600, 57.1429 )
+nodes/Animation/position = Vector2( -542.857, 171.429 )
 "nodes/Animation 2/node" = SubResource( 6 )
-"nodes/Animation 2/position" = Vector2( -171.429, 257.143 )
+"nodes/Animation 2/position" = Vector2( -171.429, 228.571 )
 "nodes/Animation 3/node" = SubResource( 7 )
-"nodes/Animation 3/position" = Vector2( -371.429, 171.429 )
+"nodes/Animation 3/position" = Vector2( -342.857, 228.571 )
 "nodes/Animation 4/node" = SubResource( 18 )
-"nodes/Animation 4/position" = Vector2( -600, -57.1429 )
+"nodes/Animation 4/position" = Vector2( -542.857, 57.1429 )
 "nodes/Animation 5/node" = SubResource( 19 )
-"nodes/Animation 5/position" = Vector2( -600, 171.429 )
+"nodes/Animation 5/position" = Vector2( -542.857, 285.714 )
 nodes/TimeScale/node = SubResource( 14 )
-nodes/TimeScale/position = Vector2( 257.143, 85.7143 )
-nodes/fins/node = SubResource( 5 )
-nodes/fins/position = Vector2( 57.1429, 114.286 )
+nodes/TimeScale/position = Vector2( 228.571, 57.1429 )
 nodes/left_right/node = SubResource( 20 )
-nodes/left_right/position = Vector2( -371.429, 0 )
-nodes/output/position = Vector2( 428.571, 85.7143 )
+nodes/left_right/position = Vector2( -342.857, 57.1429 )
+nodes/output/position = Vector2( 400, 57.1429 )
 nodes/stop_move/node = SubResource( 9 )
 nodes/stop_move/position = Vector2( -171.429, 57.1429 )
-node_connections = [ "left_right", 0, "Animation 4", "left_right", 1, "Animation", "left_right", 2, "Animation 5", "output", 0, "TimeScale", "fins", 0, "stop_move", "fins", 1, "Animation 2", "TimeScale", 0, "fins", "stop_move", 0, "left_right", "stop_move", 1, "Animation 3" ]
+node_connections = [ "output", 0, "TimeScale", "Add2", 0, "stop_move", "Add2", 1, "Animation 2", "stop_move", 0, "left_right", "stop_move", 1, "Animation 3", "TimeScale", 0, "Add2", "left_right", 0, "Animation 4", "left_right", 1, "Animation", "left_right", 2, "Animation 5" ]
 
 [sub_resource type="AnimationNodeStateMachine" id=12]
 states/BlendTree/node = SubResource( 10 )
@@ -1035,8 +1035,8 @@ tree_root = SubResource( 12 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 13 )
+parameters/BlendTree/Add2/add_amount = 1.0
 parameters/BlendTree/TimeScale/scale = 1.0
-parameters/BlendTree/fins/add_amount = 1.0
 parameters/BlendTree/left_right/blend_amount = 0.0
 parameters/BlendTree/stop_move/blend_amount = 0.0
 
