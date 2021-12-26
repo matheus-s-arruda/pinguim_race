@@ -7,11 +7,6 @@
 
 [node name="world" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 1330, -665 )
-current = true
-zoom = Vector2( 2, 2 )
-
 [node name="whale" parent="." instance=ExtResource( 1 )]
 visible = false
 position = Vector2( 1704, 508 )
@@ -28,3 +23,8 @@ texture = ExtResource( 3 )
 [node name="pinguin_imperial" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1262, -207 )
 rotation = -1.72235
+
+[node name="Camera2D" type="Camera2D" parent="pinguin_imperial"]
+rotation = 1.72235
+current = true
+zoom = Vector2( 2, 2 )

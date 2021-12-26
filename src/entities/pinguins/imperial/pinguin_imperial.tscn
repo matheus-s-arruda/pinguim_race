@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://assets/svg/pinguin_imperial.svg" type="Texture" id=1]
 [ext_resource path="res://assets/svg/pinguin_imperial_nadadeiras.svg" type="Texture" id=2]
@@ -8,7 +8,751 @@
 radius = 11.0
 height = 45.0
 
+[sub_resource type="Animation" id=8]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/origin/tronco/neck:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/origin/tronco:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/origin/quadril:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/origin/quadril/bacia:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -90.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas/Position2D:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca/Position2D:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -43.9243 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Skeleton2D/origin/tronco/neck/right:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Skeleton2D/origin/tronco/neck/left:rotation_degrees")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Skeleton2D/origin/tronco/neck/left:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Skeleton2D/origin/tronco/neck/right:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "fins_slide"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/origin/tronco/neck/right:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 39.2 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/origin/tronco/neck/left:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -38.3 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "fins_swim"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/origin/tronco/neck/left:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.958333, 1 ), Vector2( 0.541667, 1 ), Vector2( 0.5, 1 ), Vector2( 0.708333, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/origin/tronco/neck/right:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05, 0.25, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.959583, 1 ), Vector2( 0.555417, 1 ), Vector2( 0.515, 1 ), Vector2( 0.717083, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/origin/tronco/neck/right:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -31.5073 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/origin/tronco/neck/left:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 29.1164 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/origin/tronco/neck:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/origin/tronco:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/origin/quadril:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/origin/quadril/bacia:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -90.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 90.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas/Position2D:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca/Position2D:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -43.9243 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "left"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/origin/tronco/neck:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -14.7547 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/origin/tronco:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -10.6372 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/origin/quadril:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 4.79629 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 10.9299 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/origin/quadril/bacia:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 7.49493 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -102.447 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 100.39 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas/Position2D:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca/Position2D:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -43.9243 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "right"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/origin/tronco/neck:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 12.4 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/origin/tronco:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 16.6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/origin/quadril:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -2.1 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -4.5 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/origin/quadril/bacia:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -6.6 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -82.0497 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 81.5867 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas/Position2D:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca/Position2D:rotation_degrees")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -43.9243 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "swim"
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skeleton2D/origin/tronco/neck:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 3.29711, 2.69713, -2.0277, -2.70268, -2.1027, 2.62213 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Skeleton2D/origin/tronco:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -7.53265, -6.09907, 5.19039, 6.80317, 5.36959, -5.91987 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Skeleton2D/origin/quadril:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 3.69622, 3.69863, 3.69649, 3.69086, 3.68524, 3.67961, 3.6772, 3.67934, 3.68497, 3.69059 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 3.80414, 4.39247, 3.86951, 2.49674, 1.12397, -0.248798, -0.837127, -0.314167, 1.0586, 2.43137 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Skeleton2D/origin/quadril/bacia:rotation_degrees")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -4.27972, -4.02528, -4.25145, -4.84515, -5.43884, -6.03254, -6.28698, -6.06081, -5.46711, -4.87342 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -88.8815, -89.6037, -95.2904, -96.1028, -95.3807, -89.6939 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Skeleton2D/origin/quadril/bacia/pernas/patas:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 89.9302, 90.5479, 89.9988, 88.5574, 87.1161, 85.6747, 85.057, 85.6061, 87.0474, 88.4888 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Skeleton2D/origin/tronco/neck/cabeca/Position2D:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4, 0.5, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -35.4653, -35.4653, -35.4653, -35.4653, -35.4653, -35.4653 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "left"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "right"
+
+[sub_resource type="AnimationNodeAnimation" id=21]
+animation = "fins_swim"
+
+[sub_resource type="AnimationNodeAnimation" id=22]
+animation = "fins_slide"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "swim"
+
+[sub_resource type="AnimationNodeTimeScale" id=24]
+
+[sub_resource type="AnimationNodeAdd2" id=20]
+
+[sub_resource type="AnimationNodeTimeScale" id=25]
+
+[sub_resource type="AnimationNodeBlend2" id=23]
+
+[sub_resource type="AnimationNodeBlend3" id=18]
+
+[sub_resource type="AnimationNodeBlend2" id=17]
+
+[sub_resource type="AnimationNodeBlendTree" id=19]
+graph_offset = Vector2( -641.429, -2.8571 )
+nodes/Animation/node = SubResource( 16 )
+nodes/Animation/position = Vector2( -457.143, 57.1429 )
+"nodes/Animation 2/node" = SubResource( 11 )
+"nodes/Animation 2/position" = Vector2( -457.143, 171.429 )
+"nodes/Animation 3/node" = SubResource( 12 )
+"nodes/Animation 3/position" = Vector2( -285.714, -57.1429 )
+"nodes/Animation 4/node" = SubResource( 13 )
+"nodes/Animation 4/position" = Vector2( -285.714, 257.143 )
+"nodes/Animation 5/node" = SubResource( 21 )
+"nodes/Animation 5/position" = Vector2( -457.143, 371.429 )
+"nodes/Animation 6/node" = SubResource( 22 )
+"nodes/Animation 6/position" = Vector2( -285.714, 514.286 )
+nodes/TimeScale/node = SubResource( 24 )
+nodes/TimeScale/position = Vector2( 285.714, 171.429 )
+nodes/_add/node = SubResource( 20 )
+nodes/_add/position = Vector2( 85.7143, 171.429 )
+nodes/fins_motion/node = SubResource( 25 )
+nodes/fins_motion/position = Vector2( -285.714, 371.429 )
+nodes/fins_slide/node = SubResource( 23 )
+nodes/fins_slide/position = Vector2( -114.286, 371.429 )
+nodes/left_right/node = SubResource( 18 )
+nodes/left_right/position = Vector2( -85.7143, 57.1429 )
+nodes/output/position = Vector2( 457.143, 171.429 )
+nodes/swim_stop/node = SubResource( 17 )
+nodes/swim_stop/position = Vector2( -285.714, 57.1429 )
+node_connections = [ "fins_motion", 0, "Animation 5", "output", 0, "TimeScale", "TimeScale", 0, "_add", "left_right", 0, "Animation 3", "left_right", 1, "swim_stop", "left_right", 2, "Animation 4", "fins_slide", 0, "fins_motion", "fins_slide", 1, "Animation 6", "swim_stop", 0, "Animation", "swim_stop", 1, "Animation 2", "_add", 0, "left_right", "_add", 1, "fins_slide" ]
+
+[sub_resource type="AnimationNodeStateMachine" id=2]
+states/BlendTree/node = SubResource( 19 )
+states/BlendTree/position = Vector2( 486.714, 66.7143 )
+start_node = "BlendTree"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+
 [node name="pinguin_imperial" type="KinematicBody2D"]
+rotation = -1.5708
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
@@ -41,6 +785,9 @@ scale = Vector2( 0.75, 0.75 )
 [node name="origin" type="Bone2D" parent="Skeleton2D"]
 position = Vector2( 77.087, 86.2641 )
 rest = Transform2D( 1, 0, 0, 1, 77.087, 86.2641 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="tronco" type="Bone2D" parent="Skeleton2D/origin"]
 rest = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -73,7 +820,7 @@ __meta__ = {
 }
 
 [node name="left" type="Sprite" parent="Skeleton2D/origin/tronco/neck"]
-position = Vector2( -12.134, 0 )
+position = Vector2( -10.12, 0 )
 texture = ExtResource( 2 )
 offset = Vector2( -11.894, 13.276 )
 flip_h = true
@@ -81,7 +828,7 @@ region_enabled = true
 region_rect = Rect2( 82.7646, 64.4958, 35.358, 39.5062 )
 
 [node name="right" type="Sprite" parent="Skeleton2D/origin/tronco/neck"]
-position = Vector2( 10.73, 0 )
+position = Vector2( 9.014, 0 )
 texture = ExtResource( 2 )
 offset = Vector2( 11.894, 13.276 )
 region_enabled = true
@@ -122,16 +869,23 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="PinguinImperial" type="Sprite" parent="."]
-visible = false
-position = Vector2( -19.2687, 54.3861 )
-rotation = 1.5708
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 1 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 8 )
+anims/fins_slide = SubResource( 9 )
+anims/fins_swim = SubResource( 10 )
+anims/idle = SubResource( 4 )
+anims/left = SubResource( 5 )
+anims/right = SubResource( 6 )
+anims/swim = SubResource( 7 )
 
-[node name="PinguinImperialNadadeiras" type="Sprite" parent="."]
-visible = false
-position = Vector2( -19.2687, 54.3861 )
-rotation = 1.5708
-scale = Vector2( 0.75, 0.75 )
-texture = ExtResource( 2 )
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 2 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 3 )
+parameters/BlendTree/TimeScale/scale = 1.0
+parameters/BlendTree/_add/add_amount = 1.0
+parameters/BlendTree/fins_motion/scale = 1.0
+parameters/BlendTree/fins_slide/blend_amount = 0.0
+parameters/BlendTree/left_right/blend_amount = 0.0
+parameters/BlendTree/swim_stop/blend_amount = 0.0
