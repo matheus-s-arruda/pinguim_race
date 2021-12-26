@@ -230,10 +230,10 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ -31.5073 ]
+"values": [ -31.5073, -6.7 ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("Skeleton2D/origin/tronco/neck/left:rotation_degrees")
@@ -242,10 +242,10 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ 29.1164 ]
+"values": [ 29.1164, 7.3 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -716,7 +716,7 @@ animation = "swim"
 [sub_resource type="AnimationNodeBlend2" id=17]
 
 [sub_resource type="AnimationNodeBlendTree" id=19]
-graph_offset = Vector2( -641.429, -2.8571 )
+graph_offset = Vector2( -651.429, 212.857 )
 nodes/Animation/node = SubResource( 16 )
 nodes/Animation/position = Vector2( -457.143, 57.1429 )
 "nodes/Animation 2/node" = SubResource( 11 )
@@ -883,9 +883,9 @@ tree_root = SubResource( 2 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 3 )
-parameters/BlendTree/TimeScale/scale = 1.0
+parameters/BlendTree/TimeScale/scale = 0.5
 parameters/BlendTree/_add/add_amount = 1.0
-parameters/BlendTree/fins_motion/scale = 1.0
+parameters/BlendTree/fins_motion/scale = 4.0
 parameters/BlendTree/fins_slide/blend_amount = 0.0
 parameters/BlendTree/left_right/blend_amount = 0.0
-parameters/BlendTree/swim_stop/blend_amount = 0.0
+parameters/BlendTree/swim_stop/blend_amount = 0.9

@@ -24,10 +24,10 @@ func _physics_process(delta):
 
 
 func _animation():
-	$AnimationTree["parameters/BlendTree/swim_stop/blend_amount"] = _current_speed / MAX_SPEED
+	$AnimationTree["parameters/BlendTree/swim_stop/blend_amount"] = 0.9 - (_current_speed / MAX_SPEED)
 	$AnimationTree["parameters/BlendTree/left_right/blend_amount"] = _current_rotation
 	$AnimationTree["parameters/BlendTree/fins_slide/blend_amount"]
-	$AnimationTree["parameters/BlendTree/fins_motion/scale"]
+	$AnimationTree["parameters/BlendTree/fins_motion/scale"] =  0.1 + (_input_speed * (6.0 - ((_current_speed / MAX_SPEED) * 5.0)))
 
 
 func _input(_event):
