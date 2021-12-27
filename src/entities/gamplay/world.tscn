@@ -1,9 +1,37 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://src/entities/whale/whale.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/entities/orca/orca.tscn" type="PackedScene" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://src/entities/pinguins/imperial/pinguin_imperial.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform sampler2D _normal;
+
+
+void fragment(){
+	float _fator = texture(_normal, UV).r;
+	if (_fator > 0.4) {
+		COLOR += pow(_fator - 0.15, 4.0) * 0.8;
+	}
+
+
+}"
+
+[sub_resource type="OpenSimplexNoise" id=4]
+octaves = 2
+period = 15.6
+persistence = 0.0
+lacunarity = 1.0
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 4 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 1 )
+shader_param/_normal = SubResource( 2 )
 
 [node name="world" type="Node2D"]
 
@@ -21,10 +49,33 @@ position = Vector2( 2096, -457 )
 texture = ExtResource( 3 )
 
 [node name="pinguin_imperial" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1262, -207 )
+position = Vector2( 1168, -334 )
 rotation = -1.72235
 
 [node name="Camera2D" type="Camera2D" parent="pinguin_imperial"]
 rotation = 1.72235
 current = true
 zoom = Vector2( 2, 2 )
+smoothing_enabled = true
+smoothing_speed = 10.0
+
+[node name="canvas_water" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="canvas_water"]
+material = SubResource( 3 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0823411, 0.355469, 0.341639, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Light2D" type="Light2D" parent="canvas_water"]
+position = Vector2( 867, 144 )
+texture = ExtResource( 3 )
+texture_scale = 5.35
+
+[node name="Sprite" type="Sprite" parent="canvas_water"]
+position = Vector2( 819, 157 )
+texture = ExtResource( 3 )
