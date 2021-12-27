@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://src/entities/whale/whale.tscn" type="PackedScene" id=1]
 [ext_resource path="res://src/entities/orca/orca.tscn" type="PackedScene" id=2]
@@ -9,29 +9,58 @@
 code = "shader_type canvas_item;
 
 uniform sampler2D _normal;
+uniform sampler2D _seam;
 
 
 void fragment(){
-	float _fator = texture(_normal, UV).r;
-	if (_fator > 0.4) {
-		COLOR += pow(_fator - 0.15, 4.0) * 0.8;
-	}
-
+	float _fator = (texture(_seam, UV).r) * 0.7;
+	float _wave = texture(_normal, UV).r * 1.35;
+	
+	COLOR += pow(_wave - 0.4, 3.0) * _fator;
+	COLOR.g += _fator * 0.1;
+	COLOR.b += _fator * 0.07;
 
 }"
 
 [sub_resource type="OpenSimplexNoise" id=4]
-octaves = 2
-period = 15.6
+octaves = 1
+period = 6.0
 persistence = 0.0
 lacunarity = 1.0
 
 [sub_resource type="NoiseTexture" id=2]
+as_normalmap = true
 noise = SubResource( 4 )
+
+[sub_resource type="OpenSimplexNoise" id=5]
+octaves = 1
+period = 50.0
+persistence = 0.0
+lacunarity = 1.0
+
+[sub_resource type="NoiseTexture" id=6]
+noise = SubResource( 5 )
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = SubResource( 1 )
 shader_param/_normal = SubResource( 2 )
+shader_param/_seam = SubResource( 6 )
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends ColorRect
+
+
+var _pos = Vector2.ONE
+
+func _physics_process(delta):
+	_pos += Vector2.ONE
+	
+	material.set_shader_param(\"_normal/noise_offset\", _pos)
+	print( material.get_shader_param(\"_normal/noise_offset\") )
+	update()
+
+
+"
 
 [node name="world" type="Node2D"]
 
@@ -59,23 +88,15 @@ zoom = Vector2( 2, 2 )
 smoothing_enabled = true
 smoothing_speed = 10.0
 
-[node name="canvas_water" type="CanvasLayer" parent="."]
+[node name="canvas_water" type="CanvasLayer" parent="pinguin_imperial"]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="canvas_water"]
+[node name="ColorRect" type="ColorRect" parent="pinguin_imperial/canvas_water"]
 material = SubResource( 3 )
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0823411, 0.355469, 0.341639, 1 )
+color = Color( 0.105882, 0.239216, 0.298039, 1 )
+script = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Light2D" type="Light2D" parent="canvas_water"]
-position = Vector2( 867, 144 )
-texture = ExtResource( 3 )
-texture_scale = 5.35
-
-[node name="Sprite" type="Sprite" parent="canvas_water"]
-position = Vector2( 819, 157 )
-texture = ExtResource( 3 )
