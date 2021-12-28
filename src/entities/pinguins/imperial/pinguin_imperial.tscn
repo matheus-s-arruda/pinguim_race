@@ -802,7 +802,7 @@ nodes/left_right/position = Vector2( -257.143, 57.1429 )
 nodes/output/position = Vector2( 285.714, 171.429 )
 nodes/swim_stop/node = SubResource( 17 )
 nodes/swim_stop/position = Vector2( -457.143, 57.1429 )
-node_connections = [ "output", 0, "_add", "TimeScale", 0, "left_right", "left_right", 0, "Animation 3", "left_right", 1, "swim_stop", "left_right", 2, "Animation 4", "fins_motion", 0, "Animation 5", "swim_stop", 0, "Animation", "swim_stop", 1, "Animation 2", "_add", 0, "TimeScale", "_add", 1, "fins_slide", "fins_slide", 0, "fins_motion", "fins_slide", 1, "Animation 6" ]
+node_connections = [ "output", 0, "_add", "left_right", 0, "Animation 3", "left_right", 1, "swim_stop", "left_right", 2, "Animation 4", "TimeScale", 0, "left_right", "_add", 0, "TimeScale", "_add", 1, "fins_slide", "swim_stop", 0, "Animation", "swim_stop", 1, "Animation 2", "fins_motion", 0, "Animation 5", "fins_slide", 0, "fins_motion", "fins_slide", 1, "Animation 6" ]
 
 [sub_resource type="AnimationNodeStateMachine" id=2]
 states/BlendTree/node = SubResource( 19 )
@@ -824,6 +824,7 @@ rotation = 1.5708
 shape = SubResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+show_behind_parent = true
 position = Vector2( 64.7003, -57.4889 )
 rotation = 1.5708
 scale = Vector2( 0.75, 0.75 )
@@ -877,7 +878,9 @@ __meta__ = {
 }
 
 [node name="left" type="Sprite" parent="Skeleton2D/origin/tronco/neck"]
+show_behind_parent = true
 position = Vector2( -10.12, 0 )
+z_index = -1
 texture = ExtResource( 2 )
 offset = Vector2( -11.894, 13.276 )
 flip_h = true
@@ -885,7 +888,9 @@ region_enabled = true
 region_rect = Rect2( 82.7646, 64.4958, 35.358, 39.5062 )
 
 [node name="right" type="Sprite" parent="Skeleton2D/origin/tronco/neck"]
+show_behind_parent = true
 position = Vector2( 9.014, 0 )
+z_index = -1
 texture = ExtResource( 2 )
 offset = Vector2( 11.894, 13.276 )
 region_enabled = true
