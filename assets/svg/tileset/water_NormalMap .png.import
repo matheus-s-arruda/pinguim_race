@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/testeteste.svg-8b552cc2a883bc4be01f2caf1ff3af63.stex"
+path="res://.import/water_NormalMap .png-19d508b2948a6e0c30d7585f94e31f62.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/svg/testeteste.svg"
-dest_files=[ "res://.import/testeteste.svg-8b552cc2a883bc4be01f2caf1ff3af63.stex" ]
+source_file="res://assets/svg/tileset/water_NormalMap .png"
+dest_files=[ "res://.import/water_NormalMap .png-19d508b2948a6e0c30d7585f94e31f62.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

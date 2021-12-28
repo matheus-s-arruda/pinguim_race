@@ -13,6 +13,7 @@ const MAX_ROTATE_SPEED := 0.06
 var slide := 1.0
 var state = IN_WATER
 var substate = NORMAL
+var _bonus_speed := 1.0
 var input_speed := 0.0
 var input_dir := 0.0
 var input_slide := false setget _handle_slide
@@ -28,7 +29,7 @@ func _physics_process(delta):
 	
 	
 	_motion = move_and_slide(_motion, Vector2.UP)
-	_current_speed = lerp(_current_speed,  input_speed * MAX_SPEED, delta / ACCELR_TIME if input_speed != 0.0 else delta)
+	_current_speed = lerp(_current_speed,  input_speed * MAX_SPEED * _bonus_speed, delta / ACCELR_TIME if input_speed != 0.0 else delta)
 	_motion = lerp(_motion, Vector2.RIGHT.rotated(global_rotation) * _current_speed, delta * slide)
 	
 	_current_rotation = lerp(_current_rotation, input_dir, delta * 4.0 if input_dir != 0.0 else delta * 8.0)
@@ -54,10 +55,12 @@ func _handle_states(delta):
 	match substate:
 		NORMAL:
 			_flag_anim_slide = _flag_anim_slide - (delta * 4.0) if _flag_anim_slide > 0.0 else 0.0
+			_bonus_speed = 1.0
 			
 		IN_SLIDE:
 			_flag_anim_slide = _flag_anim_slide + (delta * 4.0) if _flag_anim_slide < 1.0 else 1.0
 			slide *= 0.5
+			_bonus_speed = 1.3
 
 
 func _handle_slide(value:bool):
