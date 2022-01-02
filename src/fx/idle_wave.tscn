@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/svg/fx/ondas_parado.svg" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Sprite
+
+
+
+onready var _tween = $Tween
+
+
+func _ready():
+	rotation_degrees = rand_range(-179, 179)
+	_tween.interpolate_property(self, \"modulate\", Color(1, 1, 1, 0), Color(1, 1, 1, 0.3), 1.5, Tween.TRANS_SINE, Tween.EASE_IN)
+	_tween.interpolate_property(self, \"scale\", Vector2(0.5, 0.5), Vector2(1.7, 1.7), 4.0)
+	_tween.start()
+	yield(_tween, \"tween_completed\")
+	_tween.interpolate_property(self, \"modulate\", Color(1, 1, 1, 0.3), Color(1, 1, 1, 0), 2.5)
+	_tween.start()
+	yield(_tween, \"tween_all_completed\")
+	queue_free()
+	
+
+
+
+
+
+"
+
+[node name="idle_wave" type="Sprite"]
+modulate = Color( 1, 1, 1, 0 )
+scale = Vector2( 0.5, 0.5 )
+z_index = -9
+texture = ExtResource( 1 )
+script = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]

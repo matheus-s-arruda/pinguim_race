@@ -21,8 +21,12 @@ _global_script_class_icons={
 [application]
 
 config/name="pinguim_race"
-run/main_scene="res://src/entities/gamplay/world.tscn"
+run/main_scene="res://src/init/main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Gameplay="*res://src/autoload/gameplay.gd"
 
 [display]
 

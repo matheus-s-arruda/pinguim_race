@@ -1,8 +1,10 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://assets/svg/pinguin_imperial.svg" type="Texture" id=1]
 [ext_resource path="res://assets/svg/pinguin_imperial_nadadeiras.svg" type="Texture" id=2]
 [ext_resource path="res://src/entities/pinguins/imperial/pinguin_imperial.gd" type="Script" id=3]
+[ext_resource path="res://assets/fx/water_splash.png" type="Texture" id=4]
+[ext_resource path="res://assets/fx/water_splash_1.png" type="Texture" id=6]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 11.0
@@ -802,7 +804,7 @@ nodes/left_right/position = Vector2( -257.143, 57.1429 )
 nodes/output/position = Vector2( 285.714, 171.429 )
 nodes/swim_stop/node = SubResource( 17 )
 nodes/swim_stop/position = Vector2( -457.143, 57.1429 )
-node_connections = [ "output", 0, "_add", "left_right", 0, "Animation 3", "left_right", 1, "swim_stop", "left_right", 2, "Animation 4", "TimeScale", 0, "left_right", "_add", 0, "TimeScale", "_add", 1, "fins_slide", "swim_stop", 0, "Animation", "swim_stop", 1, "Animation 2", "fins_motion", 0, "Animation 5", "fins_slide", 0, "fins_motion", "fins_slide", 1, "Animation 6" ]
+node_connections = [ "output", 0, "_add", "left_right", 0, "Animation 3", "left_right", 1, "swim_stop", "left_right", 2, "Animation 4", "TimeScale", 0, "left_right", "fins_motion", 0, "Animation 5", "_add", 0, "TimeScale", "_add", 1, "fins_slide", "fins_slide", 0, "fins_motion", "fins_slide", 1, "Animation 6", "swim_stop", 0, "Animation", "swim_stop", 1, "Animation 2" ]
 
 [sub_resource type="AnimationNodeStateMachine" id=2]
 states/BlendTree/node = SubResource( 19 )
@@ -811,12 +813,21 @@ start_node = "BlendTree"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=3]
 
+[sub_resource type="Curve" id=28]
+max_value = 2.5
+_data = [ Vector2( 0, 0.341207 ), 0.0, 0.244655, 0, 0, Vector2( 1, 1.96141 ), 2.82863, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=27]
+offsets = PoolRealArray( 0.00719424, 0.266187, 0.496403, 1 )
+colors = PoolColorArray( 1, 1, 1, 0.784314, 1, 1, 1, 0.501084, 1, 1, 1, 0.33813, 1, 1, 1, 0 )
+
+[sub_resource type="Curve" id=29]
+max_value = 2.5
+_data = [ Vector2( 0, 0.620078 ), 0.0, 0.244655, 0, 0, Vector2( 1, 1.50591 ), 2.04185, 0.0, 0, 0 ]
+
 [node name="pinguin_imperial" type="KinematicBody2D"]
 rotation = -1.5708
 script = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -878,7 +889,6 @@ __meta__ = {
 }
 
 [node name="left" type="Sprite" parent="Skeleton2D/origin/tronco/neck"]
-show_behind_parent = true
 position = Vector2( -10.12, 0 )
 z_index = -1
 texture = ExtResource( 2 )
@@ -888,7 +898,6 @@ region_enabled = true
 region_rect = Rect2( 82.7646, 64.4958, 35.358, 39.5062 )
 
 [node name="right" type="Sprite" parent="Skeleton2D/origin/tronco/neck"]
-show_behind_parent = true
 position = Vector2( 9.014, 0 )
 z_index = -1
 texture = ExtResource( 2 )
@@ -951,3 +960,78 @@ parameters/BlendTree/fins_motion/scale = 4.0
 parameters/BlendTree/fins_slide/blend_amount = 0.0
 parameters/BlendTree/left_right/blend_amount = 0.0
 parameters/BlendTree/swim_stop/blend_amount = 0.0
+
+[node name="trail_L" type="CPUParticles2D" parent="."]
+z_index = -9
+emitting = false
+amount = 30
+fixed_fps = 20
+local_coords = false
+texture = ExtResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 9.0
+direction = Vector2( 0, -1000 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+scale_amount_curve = SubResource( 28 )
+color_ramp = SubResource( 27 )
+
+[node name="trail_R" type="CPUParticles2D" parent="."]
+z_index = -9
+emitting = false
+amount = 30
+fixed_fps = 20
+local_coords = false
+texture = ExtResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 9.0
+direction = Vector2( 0, 1000 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+scale_amount_curve = SubResource( 28 )
+color_ramp = SubResource( 27 )
+
+[node name="trail_C" type="CPUParticles2D" parent="."]
+z_index = -9
+emitting = false
+amount = 30
+fixed_fps = 20
+local_coords = false
+texture = ExtResource( 4 )
+emission_shape = 1
+emission_sphere_radius = 9.0
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 50.0
+angular_velocity = 90.0
+angular_velocity_random = 1.0
+scale_amount = 1.26
+scale_amount_curve = SubResource( 29 )
+color_ramp = SubResource( 27 )
+
+[node name="drops" type="CPUParticles2D" parent="."]
+z_index = -9
+emitting = false
+amount = 10
+lifetime = 0.43
+lifetime_randomness = 0.74
+local_coords = false
+spread = 51.43
+gravity = Vector2( 0, 0 )
+initial_velocity = 179.94
+scale_amount = 2.16
+color = Color( 1, 1, 1, 0.376471 )
+
+[node name="Sprite" type="Sprite" parent="."]
+visible = false
+rotation = 1.5708
+scale = Vector2( 0.458, 0.606 )
+z_index = -9
+texture = ExtResource( 6 )

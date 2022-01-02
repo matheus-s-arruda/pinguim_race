@@ -854,7 +854,7 @@ nodes/left_right/position = Vector2( -342.857, 57.1429 )
 nodes/output/position = Vector2( 400, 57.1429 )
 nodes/stop_move/node = SubResource( 9 )
 nodes/stop_move/position = Vector2( -171.429, 57.1429 )
-node_connections = [ "output", 0, "TimeScale", "fins", 0, "stop_move", "fins", 1, "Animation 2", "stop_move", 0, "left_right", "stop_move", 1, "Animation 3", "TimeScale", 0, "fins", "left_right", 0, "Animation 4", "left_right", 1, "Animation", "left_right", 2, "Animation 5" ]
+node_connections = [ "output", 0, "TimeScale", "left_right", 0, "Animation 4", "left_right", 1, "Animation", "left_right", 2, "Animation 5", "TimeScale", 0, "fins", "fins", 0, "stop_move", "fins", 1, "Animation 2", "stop_move", 0, "left_right", "stop_move", 1, "Animation 3" ]
 
 [sub_resource type="AnimationNodeStateMachine" id=12]
 states/BlendTree/node = SubResource( 10 )
