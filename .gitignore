@@ -1,0 +1,9 @@
+.import
+.import/
+export_presets.cfg
+*.keystore
+*.txt
+
+_market/
+testes/
+
