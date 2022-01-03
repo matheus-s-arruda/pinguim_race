@@ -11,7 +11,8 @@ func _input(_event):
 	self.input_slide = Input.is_action_pressed("ui_select")
 
 
-
+func end():
+	var err = get_tree().change_scene("res://src/init/main.tscn")
 
 
 

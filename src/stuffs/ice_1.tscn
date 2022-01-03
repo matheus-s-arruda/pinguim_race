@@ -6,6 +6,8 @@
 radius = 22.0
 
 [node name="gelo" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2( -26.7733, -19.8438 )

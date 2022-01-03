@@ -1,9 +1,6 @@
 class_name GPenguin
 extends KinematicBody2D
 
-signal motion_less
-signal motion_up
-
 enum {IN_WATER, IN_TERRAIN}
 enum {NORMAL, IN_SLIDE}
 
@@ -23,25 +20,21 @@ var input_speed := 0.0
 var input_dir := 0.0
 var input_slide := false setget _handle_slide
 
-var _motion := Vector2.ZERO setget _handle_motion
+var _motion := Vector2.ZERO
 var _current_speed := 0.0
 var _current_rotation := 0.0
 var _flag_anim_slide := 0.0
 var _flag_fx_wave_idle := 0.0
 
 
-func _init():
-	var _a = connect("motion_less", self, "_handle_low_motion")
-	var _b = connect("motion_up", self, "_handle_most_motion")
-
-
 func _physics_process(delta):
 	_handle_states(delta)
 	_animation()
+	_particles()
 	_fx_waves(delta)
-	self._motion = move_and_slide(_motion, Vector2.UP)
+	_motion = move_and_slide(_motion, Vector2.UP)
 	_current_speed = lerp(_current_speed,  input_speed * MAX_SPEED * _bonus_speed, delta / ACCELR_TIME if input_speed != 0.0 else delta)
-	self._motion = lerp(_motion, Vector2.RIGHT.rotated(global_rotation) * _current_speed, delta * slide)
+	_motion = lerp(_motion, Vector2.RIGHT.rotated(global_rotation) * _current_speed, delta * slide)
 	
 	_current_rotation = lerp(_current_rotation, input_dir, delta * 4.0 if input_dir != 0.0 else delta * 8.0)
 	global_rotation += _current_rotation * MAX_ROTATE_SPEED * slide
@@ -88,27 +81,13 @@ func _fx_waves(delta):
 		_fx.global_position = global_position
 
 
-func _handle_motion(_new_motion):
-	_motion = _new_motion
-	if _motion.length() < 80.0:
-		emit_signal("motion_less")
-	else:
-		emit_signal("motion_up")
-
-
-func _handle_low_motion():
-	$drops.emitting   = false
-	$trail_C.emitting = false
-	$trail_R.emitting = false
-	$trail_L.emitting = false
-
-
-func _handle_most_motion():
-	$drops.emitting   = true
-	$trail_C.emitting = true
-	$trail_L.emitting = true
-	$trail_R.emitting = true
-
+func _particles():
+	$drops.emitting   = _motion.length() > 80.0
+	$trail_C.emitting = _motion.length() > 80.0
+	$trail_R.emitting = _motion.length() > 80.0
+	$trail_L.emitting = _motion.length() > 80.0
+	
+	
 
 
 

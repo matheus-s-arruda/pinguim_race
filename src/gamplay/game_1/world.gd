@@ -3,6 +3,7 @@ extends Node2D
 enum {CRITICAL_LOOP}
 
 const checkpoint = preload("res://src/fx/check_point.tscn")
+const orca_res = preload("res://src/entities/orca/orca.tscn")
 
 const spws := [
 	Vector2(1872, -1792),
@@ -17,7 +18,22 @@ const spws := [
 	Vector2(1168, 688),
 ]
 
+const orca_spws := [
+	Vector2(-2650, 2800),
+	Vector2(-650, 2800),
+	Vector2(-1350, 2800),
+	Vector2(2950, -2000),
+	Vector2(2950, 400),
+	Vector2(2950, 2900),
+	Vector2(2300, 3900),
+	Vector2(-430, 3900),
+	Vector2(-3200, 3900),
+	Vector2(-4000, 3100),
+	Vector2(-4000, 530),
+	Vector2(-4000, -2000),
+]
 
+var fishs := 0
 var current_spawn = null setget _update_spawn
 var finish := false
 
@@ -53,6 +69,10 @@ func _update_spawn(value):
 		start()
 
 
-
+func spawn_orca():
+	var new_pos = orca_spws[6 + (randi() % 3)]
+	var new_orca = orca_res.instance()
+	call_deferred("add_child", new_orca)
+	new_orca.global_position = new_pos
 
 
