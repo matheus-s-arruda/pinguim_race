@@ -1,5 +1,6 @@
 extends GPenguin
 
+var hurt := 2
 
 func _init():
 	Gameplay.player = self
@@ -11,8 +12,14 @@ func _input(_event):
 	self.input_slide = Input.is_action_pressed("ui_select")
 
 
+func hited():
+	hurt -= 1
+	if hurt <= 0:
+		end()
+
+
 func end():
-	var err = get_tree().change_scene("res://src/init/main.tscn")
+	get_parent().bad_end()
 
 
 

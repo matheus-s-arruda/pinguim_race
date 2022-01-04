@@ -19,3 +19,7 @@ func _update_checkpoint(new_target):
 	checkpoint_target = new_target
 	
 	emit_signal("update_target", new_target != null)
+
+
+
+

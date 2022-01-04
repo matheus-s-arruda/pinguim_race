@@ -19,9 +19,9 @@ const spws := [
 ]
 
 const orca_spws := [
-	Vector2(-2650, 2800),
-	Vector2(-650, 2800),
-	Vector2(-1350, 2800),
+	Vector2(-2650, -2800),
+	Vector2(-650, -2800),
+	Vector2(1950, -2800),
 	Vector2(2950, -2000),
 	Vector2(2950, 400),
 	Vector2(2950, 2900),
@@ -37,9 +37,12 @@ var fishs := 0
 var current_spawn = null setget _update_spawn
 var finish := false
 
+onready var timer = $Timer
+
 func _ready():
 	yield(get_tree().create_timer(1), "timeout")
 	start()
+	timer.start(90)
 
 
 func start():
@@ -70,9 +73,23 @@ func _update_spawn(value):
 
 
 func spawn_orca():
-	var new_pos = orca_spws[6 + (randi() % 3)]
+	var new_pos = orca_spws[randi() % 9]
 	var new_orca = orca_res.instance()
-	call_deferred("add_child", new_orca)
 	new_orca.global_position = new_pos
+	call_deferred("add_child", new_orca)
 
+
+func _on_Timer_timeout():
+	timer.stop()
+	good_end()
+
+
+func good_end():
+	Engine.time_scale = 0.5
+	yield(get_tree().create_timer(1), "timeout")
+	var _err = get_tree().change_scene("res://src/init/main.tscn")
+
+
+func bad_end():
+	var _err = get_tree().change_scene("res://src/init/main.tscn")
 

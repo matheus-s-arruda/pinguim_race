@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/svg/tileset/gelos.svg" type="Texture" id=1]
+
+[node name="gelo_nos" type="StaticBody2D"]
+scale = Vector2( 2, 2 )
+z_index = 1
+z_as_relative = false
+collision_layer = 8
+collision_mask = 0
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2( 2, 2 )
+offset = Vector2( -151.488, -160.109 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 110.984, 166.802, 123.799, 132.935, 157.208, 124.239, 188.558, 131.79, 192.677, 155.36, 179.634, 191.973, 137.529, 196.092 )
+uv = PoolVector2Array( 110.984, 166.802, 123.799, 132.935, 157.208, 124.239, 188.558, 131.79, 192.677, 155.36, 179.634, 191.973, 137.529, 196.092 )
+polygons = [ PoolIntArray( 1, 6, 0 ), PoolIntArray( 1, 2, 5, 6 ), PoolIntArray( 2, 3, 4, 5 ) ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( -303.176, -318.852 )
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( 113.953, 165.603, 126.146, 134.49, 153.475, 125.03, 187.741, 134.069, 189.213, 162.029, 178.071, 189.779, 137.288, 192.722 )
+__meta__ = {
+"_editor_description_": ""
+}

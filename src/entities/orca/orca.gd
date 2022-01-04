@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-const MAX_SPEED := 500.0
-const ACCELR_TIME := 5.0
+const MAX_SPEED := 400.0
+const ACCELR_TIME := 1.0
 
 var target := Vector2.ZERO
 

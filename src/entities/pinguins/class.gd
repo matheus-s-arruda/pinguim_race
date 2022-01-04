@@ -64,7 +64,7 @@ func _handle_states(delta):
 		IN_SLIDE:
 			_flag_anim_slide = _flag_anim_slide + (delta * 4.0) if _flag_anim_slide < 1.0 else 1.0
 			slide *= 0.5
-			_bonus_speed = 1.3
+			_bonus_speed = 1.7
 
 
 func _handle_slide(value:bool):

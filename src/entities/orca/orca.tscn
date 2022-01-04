@@ -1,15 +1,19 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://assets/svg/orca_nadadeiras.svg" type="Texture" id=1]
 [ext_resource path="res://assets/svg/orca_corpo.svg" type="Texture" id=2]
 [ext_resource path="res://src/entities/orca/orca.gd" type="Script" id=3]
 [ext_resource path="res://src/entities/orca/hitbox.gd" type="Script" id=4]
+[ext_resource path="res://src/entities/orca/hitbox_2.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=40]
-radius = 24.0
+radius = 30.4712
 
 [sub_resource type="CircleShape2D" id=41]
-radius = 13.0
+radius = 12.849
+
+[sub_resource type="CircleShape2D" id=42]
+radius = 16.0
 
 [sub_resource type="Animation" id=1]
 length = 0.001
@@ -755,6 +759,7 @@ max_value = 500.0
 _data = [ Vector2( 0, 500 ), 0.0, -744.863, 0, 0, Vector2( 1, -200 ), 82.926, 0.0, 0, 0 ]
 
 [node name="orca" type="KinematicBody2D"]
+scale = Vector2( 1.5, 1.5 )
 z_index = -1
 collision_layer = 4
 collision_mask = 14
@@ -837,15 +842,25 @@ __meta__ = {
 "_edit_bone_": true
 }
 
-[node name="hitbox" type="Area2D" parent="Skeleton2D/origin/neck/cabeca"]
+[node name="hitbox_1" type="Area2D" parent="Skeleton2D/origin/neck/cabeca"]
 collision_layer = 0
 collision_mask = 2
+monitorable = false
 script = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/origin/neck/cabeca/hitbox"]
-position = Vector2( 22.964, 0 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/origin/neck/cabeca/hitbox_1"]
+position = Vector2( 27.16, 0 )
 rotation = 1.5708
 shape = SubResource( 41 )
+
+[node name="hitbox_2" type="Area2D" parent="Skeleton2D/origin/neck/cabeca"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Skeleton2D/origin/neck/cabeca/hitbox_2"]
+shape = SubResource( 42 )
 
 [node name="tronco" type="Bone2D" parent="Skeleton2D/origin"]
 rotation = -1.86265e-09
@@ -1008,4 +1023,5 @@ linear_accel_curve = SubResource( 30 )
 scale_amount = 2.16
 color = Color( 1, 1, 1, 0.376471 )
 
-[connection signal="body_entered" from="Skeleton2D/origin/neck/cabeca/hitbox" to="Skeleton2D/origin/neck/cabeca/hitbox" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Skeleton2D/origin/neck/cabeca/hitbox_1" to="Skeleton2D/origin/neck/cabeca/hitbox_1" method="_on_hitbox_body_entered"]
+[connection signal="body_entered" from="Skeleton2D/origin/neck/cabeca/hitbox_2" to="Skeleton2D/origin/neck/cabeca/hitbox_2" method="_on_hitbox_2_body_entered"]
