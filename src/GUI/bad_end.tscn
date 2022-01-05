@@ -1,0 +1,277 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/fonts/Gluten-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/fonts/gluten_22.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/svg/GUI/background_gradiente.svg" type="Texture" id=3]
+[ext_resource path="res://assets/svg/GUI/agua.svg" type="Texture" id=4]
+[ext_resource path="res://assets/svg/GUI/orca_rindo.svg" type="Texture" id=5]
+
+[sub_resource type="GDScript" id=9]
+script/source = "extends Control
+
+var time := 0.0
+
+onready var _tween = $Tween
+
+func _ready():
+	_tween.interpolate_property(get_parent(), \"modulate\", Color.black, Color.white, 1.5)
+	_tween.start()
+	$Timer.start(1.5)
+	yield($Timer, \"timeout\")
+	_tween.interpolate_property(self, \"rect_position\", Vector2(0, 600), Vector2.ZERO, 1.5, Tween.TRANS_SINE, Tween.EASE_OUT)
+	_tween.start()
+	
+	
+func _physics_process(delta):
+	time += delta
+	$camada_1.rect_position.x += cos(time * 2.0) * 0.4
+	$camada_2.rect_position.x += cos((time + 0.5) * 2.0)
+	$camada_3.rect_position.x += cos((time + 1.0) * 2.0) * 1.5
+	$camada_4.rect_position.x += cos((time + 2.0) * 2.0) * 2.0
+	$orca.rect_position.y += cos(time) * 0.4
+
+
+
+
+
+"
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="GDScript" id=8]
+script/source = "extends Label
+
+
+func _ready():
+	text = \"score: \" + String(Gameplay.score)
+"
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.129412, 0.129412, 0.160784, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0.282353, 0.282353, 0.333333, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="GDScript" id=7]
+script/source = "extends Button
+
+
+
+
+
+
+func _on_replay_pressed():
+	var _err = get_tree().change_scene(\"res://src/gamplay/game_1/world.tscn\")
+"
+
+[sub_resource type="GDScript" id=6]
+script/source = "extends Button
+
+
+
+
+
+
+func _on_menu_pressed():
+	var _err = get_tree().change_scene(\"res://src/init/main.tscn\")
+"
+
+[node name="bad_end" type="TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="background" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 600.0
+margin_bottom = 600.0
+script = SubResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="camada_1" type="TextureRect" parent="background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -46.5274
+margin_top = 403.573
+margin_right = 1095.47
+margin_bottom = 635.573
+rect_scale = Vector2( 0.6, 0.6 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="camada_2" type="TextureRect" parent="background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -49.468
+margin_top = 421.897
+margin_right = 1092.53
+margin_bottom = 653.897
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="camada_3" type="TextureRect" parent="background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -212.564
+margin_top = 423.799
+margin_right = 293.436
+margin_bottom = 655.799
+rect_scale = Vector2( 1.2, 1.2 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="orca" type="TextureRect" parent="background"]
+margin_left = -1.72507
+margin_top = 473.016
+margin_right = 298.275
+margin_bottom = 713.016
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="camada_4" type="TextureRect" parent="background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -169.214
+margin_top = 451.635
+margin_right = 336.786
+margin_bottom = 683.635
+rect_scale = Vector2( 1.4, 1.4 )
+texture = ExtResource( 4 )
+stretch_mode = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="background"]
+
+[node name="Timer" type="Timer" parent="background"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 15
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="canvas" type="Control" parent="MarginContainer"]
+margin_left = 10.0
+margin_top = 15.0
+margin_right = 1350.0
+margin_bottom = 758.0
+
+[node name="you_lose" type="Label" parent="MarginContainer/canvas"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -127.5
+margin_top = 50.0
+margin_right = 127.5
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 1 )
+text = "you lose"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="score" type="Label" parent="MarginContainer/canvas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -75.0
+margin_top = -124.0
+margin_right = 75.0
+margin_bottom = -76.0
+custom_fonts/font = SubResource( 4 )
+text = "score: 214"
+align = 1
+valign = 1
+script = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="replay" type="Button" parent="MarginContainer/canvas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.0
+margin_top = 70.0
+margin_right = -30.0
+margin_bottom = 130.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "replay"
+script = SubResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="menu" type="Button" parent="MarginContainer/canvas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 30.0
+margin_top = 70.0
+margin_right = 170.0
+margin_bottom = 130.0
+focus_mode = 0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/normal = SubResource( 3 )
+text = "menu"
+script = SubResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MarginContainer/canvas/replay" to="MarginContainer/canvas/replay" method="_on_replay_pressed"]
+[connection signal="pressed" from="MarginContainer/canvas/menu" to="MarginContainer/canvas/menu" method="_on_menu_pressed"]

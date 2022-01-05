@@ -45,7 +45,7 @@ func _on_flag_body_entered(_body):
 	Gameplay.checkpoint_target = null
 	get_parent().current_spawn = null
 	get_parent().spawn_orca()
-	Gameplay.score += 1
+	Gameplay.score += 50
 	anim_completed()
 
 

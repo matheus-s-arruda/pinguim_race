@@ -35,18 +35,27 @@ const orca_spws := [
 
 var fishs := 0
 var current_spawn = null setget _update_spawn
-var finish := false
+var game_end := false
+var first_warnning := true
+
 
 onready var timer = $Timer
+onready var _notify = $GUI/HUD/canvas/notify
+
+func _init():
+	Gameplay.score = 0
+
 
 func _ready():
+	$Tween.interpolate_property(self, "modulate", Color.black, Color.white, 1)
+	$Tween.start()
 	yield(get_tree().create_timer(1), "timeout")
 	start()
 	timer.start(90)
 
 
 func start():
-	if finish:
+	if game_end:
 		return
 	var new_pos = get_spawn_pos()
 	if new_pos is Vector2:
@@ -70,6 +79,9 @@ func _update_spawn(value):
 	current_spawn = value
 	if not current_spawn:
 		start()
+		if first_warnning:
+			first_warnning = false
+			_notify.notify("Orcas on the loose!")
 
 
 func spawn_orca():
@@ -85,11 +97,17 @@ func _on_Timer_timeout():
 
 
 func good_end():
-	Engine.time_scale = 0.5
-	yield(get_tree().create_timer(1), "timeout")
-	var _err = get_tree().change_scene("res://src/init/main.tscn")
+	game_end = true
+	$Tween.interpolate_property(self, "modulate", Color.white, Color.black, 1)
+	$Tween.start()
+	get_tree().paused = true
+	yield(get_tree().create_timer(1),"timeout")
+	get_tree().paused = false
+	var _err = get_tree().change_scene("res://src/GUI/good_end.tscn")
 
 
 func bad_end():
-	var _err = get_tree().change_scene("res://src/init/main.tscn")
+	if game_end:
+		return
+	var _err = get_tree().change_scene("res://src/GUI/bad_end.tscn")
 

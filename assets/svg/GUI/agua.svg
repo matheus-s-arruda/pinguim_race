@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="300"
+   height="200"
+   viewBox="0 0 79.374998 52.916668"
+   version="1.1"
+   id="svg1992"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="agua.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1994"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     inkscape:zoom="3.38"
+     inkscape:cx="152.21893"
+     inkscape:cy="17.307692"
+     inkscape:window-width="1298"
+     inkscape:window-height="745"
+     inkscape:window-x="54"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1989" />
+  <g
+     inkscape:label="Camada 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#15343c;fill-opacity:1;stroke:#598289;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:0.53956836"
+       d="m 79.917611,4.8567818 c -1.509448,1.7370958 -3.223876,1.1503199 -4.465106,0.5483463 -1.47421,1.0270303 -3.566909,1.107908 -4.621776,-0.3916763 -1.245053,1.374006 -3.444871,1.2479237 -4.826494,0.2810529 -0.994729,1.1703818 -2.925618,0.9484638 -3.610186,-0.3691511 -1.419466,1.130894 -2.738356,0.5915103 -4.018617,-0.3035775 -1.191518,1.0898545 -3.072478,1.2814983 -4.621776,0.078336 -0.699912,0.8429152 -3.509377,1.353338 -4.171292,-0.1018591 -0.680284,0.8350317 -3.384935,1.5331427 -5.07226,0.1018591 -1.660164,0.9641358 -2.84434,0.8930374 -4.194816,0.05581 -1.040647,1.7852257 -3.548269,1.0907269 -4.649294,0.099861 C 34.997783,5.6046124 32.243224,5.6993861 31.271458,4.4651051 30.15915,6.1063601 28.068861,6.2939912 26.759305,5.0389727 25.58389,5.6565716 23.249336,6.3198334 22.095477,4.7804436 20.786593,6.570444 18.440925,6.3262052 17.201412,4.8823027 16.228449,6.3196039 13.780763,7.095229 12.831398,5.3445472 12.151873,6.6867936 9.7008197,6.7522932 8.6746376,5.4659338 7.3853348,6.2906348 5.2618216,6.6742696 4.0783821,5.3425498 2.9182016,6.5694985 0.7672974,6.8048547 -0.23005347,4.8667702 L -0.4542964,53.58127 79.917611,53.737941 Z"
+       id="path2086"
+       sodipodi:nodetypes="cccccccccccccccccccccc" />
+  </g>
+</svg>

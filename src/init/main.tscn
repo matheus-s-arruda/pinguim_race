@@ -1,4 +1,42 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/fonts/Gluten-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/GUI/world_1_btn.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/gluten_22.tres" type="DynamicFont" id=3]
+[ext_resource path="res://assets/svg/GUI/Background_menu.svg" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 22
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 1 )
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Button
+
+
+
+
+
+func _on_quit_pressed():
+	get_tree().quit()
+"
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.137255, 0.141176, 0.180392, 1 )
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Button
@@ -10,39 +48,163 @@ func _on_play_pressed():
 	var _err = get_tree().change_scene(\"res://src/gamplay/game_1/world.tscn\")
 "
 
-[sub_resource type="GDScript" id=2]
-script/source = "extends Control
-
-
-
-
-
-"
-
-[node name="main" type="Control"]
+[node name="main" type="TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+texture = ExtResource( 4 )
+expand = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 15
+custom_constants/margin_top = 15
+custom_constants/margin_left = 15
+custom_constants/margin_bottom = 15
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="play" type="Button" parent="."]
-margin_left = 441.0
-margin_top = 435.0
-margin_right = 531.0
-margin_bottom = 475.0
-text = "play"
-script = SubResource( 1 )
+[node name="canvas" type="Control" parent="MarginContainer"]
+margin_left = 15.0
+margin_top = 15.0
+margin_right = 1345.0
+margin_bottom = 753.0
+
+[node name="title" type="Label" parent="MarginContainer/canvas"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -233.5
+margin_top = 20.0
+margin_right = 233.5
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 3 )
+text = "penguin drift"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Control" type="Control" parent="."]
-margin_right = 40.0
+[node name="quit" type="Button" parent="MarginContainer/canvas"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -80.0
 margin_bottom = 40.0
+focus_mode = 0
+custom_fonts/font = SubResource( 5 )
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/normal = SubResource( 6 )
+text = "sair"
 script = SubResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[connection signal="pressed" from="play" to="play" method="_on_play_pressed"]
+[node name="play_world1" type="Button" parent="MarginContainer/canvas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 45.0
+margin_top = -102.0
+margin_right = 165.0
+margin_bottom = 18.0
+focus_mode = 0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+script = SubResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/canvas/play_world1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/canvas/play_world1/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 115.0
+margin_bottom = 115.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="MarginContainer/canvas/play_world1"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -68.5
+margin_top = -18.0
+margin_right = 68.5
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 3 )
+text = "fishing and hunting"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play_world2" type="Button" parent="MarginContainer/canvas"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 217.0
+margin_top = -102.0
+margin_right = 337.0
+margin_bottom = 18.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 4 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/canvas/play_world2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/canvas/play_world2/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 115.0
+margin_bottom = 115.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Label" type="Label" parent="MarginContainer/canvas/play_world2"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -58.5
+margin_top = -18.0
+margin_right = 58.5
+margin_bottom = 3.0
+custom_fonts/font = ExtResource( 3 )
+text = "quick race"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MarginContainer/canvas/quit" to="MarginContainer/canvas/quit" method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/canvas/play_world1" to="MarginContainer/canvas/play_world1" method="_on_play_pressed"]
